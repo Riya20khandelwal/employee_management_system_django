@@ -89,3 +89,18 @@ def profile(request):
 def Logout(request):
     logout(request)
     return redirect('index')
+
+def admin_login(request):
+    return render(request, 'admin_login.html')
+
+
+def my_experience(request):
+    if not request.user.is_authenticated:
+        return redirect('emp_login')
+
+    user = request.user
+    employee = EmplyeeExperience.objects.get(user=user)
+
+
+    
+    return render(request, 'myexperience.html', locals())
