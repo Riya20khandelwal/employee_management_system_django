@@ -24,14 +24,14 @@
                 </center> 
                 
                 <div class="list-group">
-                    <a href="" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/emp_home' %} active {% enif %}">Dashboard</a>
-                    <a href="" class="list-group-item  list-group-item-warning list-group-item-action">Profile</a>
+                    <a href="{% url 'emp_home' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/emp_home' %} active {% endif %}">Dashboard</a>
+                    <a href="{% url 'profile' %}" class="list-group-item  list-group-item-warning list-group-item-action">Profile</a>
                     <a href="" class="list-group-item list-group-item-warning list-group-item-action">My Experience</a>
                     <a href="" class="list-group-item list-group-item-warning list-group-item-action">Edit My Experience</a>
                     <a href="" class="list-group-item  list-group-item-warning list-group-item-action">My Education</a>
                     <a href="" class="list-group-item list-group-item-warning list-group-item-action">Edit my Education</a>
                     <a href="" class="list-group-item list-group-item-warning list-group-item-action">Change Password</a>
-                    <a href="" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
+                    <a href="{% url 'logout' %}" class="list-group-item list-group-item-warning list-group-item-action">Logout</a>
                 </div>
             </div>
             <div class="col-sm-10 p-0">

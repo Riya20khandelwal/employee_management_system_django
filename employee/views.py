@@ -45,4 +45,47 @@ def emp_login(request):
 
 
 def emp_home(request):
+    if not request.user.is_authenticated:
+        return redirect('emp_login')
     return render(request, 'emp_home.html')
+
+def profile(request):
+    if not request.user.is_authenticated:
+        return redirect('emp_login')
+    error = ""
+    user = request.user
+    employee = EmployeeDetail.objects.get(user=user)
+    if request.method == "POST":
+        fn = request.POST['firstname']
+        ln = request.POST['lastname']
+        ec = request.POST['empcode']
+        dept = request.POST['department']
+        designation = request.POST['designation']
+        contact = request.POST['contact']
+        jdate = request.POST['jdate']
+        gender = request.POST['gender']
+
+        employee.user.first_name = fn
+        employee.user.last_name = ln
+        employee.empcode = ec
+        employee.empdept = dept
+        employee.designation = designation
+        employee.contact = contact
+        employee.gender = gender
+
+        if jdate:
+            employee.joiningdate = jdate
+
+        try:
+            employee.save()
+            employee.user.save()
+            error = "no"
+
+        except:
+            error = "yes"
+
+    return render(request, 'profile.html', locals())
+
+def Logout(request):
+    logout(request)
+    return redirect('index')
