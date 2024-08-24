@@ -19,6 +19,9 @@ def registration(request):
         try:
             user = User.objects.create_user(first_name=fn, last_name=ln, username=em, password=pwd)
             EmployeeDetail.objects.create(user=user, empcode=ec)
+            EmployeeExperience.objects.create(user=user)
+            EmployeeEducation.objects.create(user=user)
+            
             error = "no"
 
         except:
@@ -99,7 +102,7 @@ def my_experience(request):
         return redirect('emp_login')
 
     user = request.user
-    employee = EmplyeeExperience.objects.get(user=user)
+    employee = EmployeeExperience.objects.get(user=user)
 
 
     
