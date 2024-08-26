@@ -10,6 +10,8 @@ urlpatterns = [
     path("logout", views.Logout, name="logout"),
     path("admin_login", views.admin_login, name="admin_login"),
     path("my_experience", views.my_experience, name="my_experience"),
-    path("edit_experience", views.edit_experience, name="edit_experience"),
+    path("edit_myexperience", views.edit_myexperience, name="edit_myexperience"),
+    path("my_education", views.my_education, name="my_education"),
+    path("edit_myeducation", views.edit_myeducation, name="edit_myeducation"),
 
 ]
