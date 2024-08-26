@@ -16,6 +16,7 @@ urlpatterns = [
     path("my_education", views.my_education, name="my_education"),
     path("edit_myeducation", views.edit_myeducation, name="edit_myeducation"),
     path("change_password", views.change_password, name="change_password"),
+    path("change_passwordadmin", views.change_passwordadmin, name="change_passwordadmin"),
 
 
 ]
