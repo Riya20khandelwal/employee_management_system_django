@@ -93,10 +93,6 @@ def Logout(request):
     logout(request)
     return redirect('index')
 
-def admin_login(request):
-    return render(request, 'admin_login.html')
-
-
 def my_experience(request):
     if not request.user.is_authenticated:
         return redirect('emp_login')
@@ -248,3 +244,28 @@ def change_password(request):
             error = "yes"
 
     return render(request, 'change_password.html', locals())
+
+
+def admin_login(request):
+    error = ""
+    if request.method =="POST":
+        u = request.POST['username']
+        p = request.POST['pwd']
+
+        user = authenticate(username=u, password=p)
+        
+        try:
+            if user.is_staff:
+                login(request, user)
+                error = 'no'
+            else:
+                error = 'yes'
+        except:
+            error = "yes"
+
+    return render(request, 'admin_login.html', locals())
+
+def admin_home(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    return render(request, 'admin_home.html')

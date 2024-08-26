@@ -9,10 +9,13 @@ urlpatterns = [
     path("profile", views.profile, name="profile"),
     path("logout", views.Logout, name="logout"),
     path("admin_login", views.admin_login, name="admin_login"),
+    path("admin_home", views.admin_home, name="admin_home"),
+
     path("my_experience", views.my_experience, name="my_experience"),
     path("edit_myexperience", views.edit_myexperience, name="edit_myexperience"),
     path("my_education", views.my_education, name="my_education"),
     path("edit_myeducation", views.edit_myeducation, name="edit_myeducation"),
     path("change_password", views.change_password, name="change_password"),
+
 
 ]

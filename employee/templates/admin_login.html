@@ -48,3 +48,16 @@
 
 </body>
 </html>
+
+{% if error == "no" %}
+<script>
+    alert('Login Successfully.');
+    window.location = ('{% url "admin_home" %}');
+
+</script>
+{% endif %}
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again...');
+</script>
+{% endif %}
