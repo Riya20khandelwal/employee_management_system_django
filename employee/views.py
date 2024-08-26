@@ -102,8 +102,56 @@ def my_experience(request):
         return redirect('emp_login')
 
     user = request.user
-    employee = EmployeeExperience.objects.get(user=user)
+    experience = EmployeeExperience.objects.get(user=user)
 
 
     
     return render(request, 'myexperience.html', locals())
+
+
+def edit_experience(request):
+    if not request.user.is_authenticated:
+        return redirect('emp_login')
+    error = ""
+    user = request.user
+    experience = EmployeeExperience.objects.get(user=user)
+    if request.method == "POST":
+        fcn = request.POST['company1name']
+        fcd = request.POST['company1desig']
+        fcs = request.POST['company1salary']
+        fcdu = request.POST['company1duration']
+        
+        scn = request.POST['company2name']
+        scd = request.POST['company2desig']
+        scs = request.POST['company2salary']
+        scdu = request.POST['company2duration']
+
+        tcn = request.POST['company3name']
+        tcd = request.POST['company3desig']
+        tcs = request.POST['company3salary']
+        tcdu = request.POST['company3duration']
+
+        experience.company1name = fcn
+        experience.company1desig = fcd
+        experience.company1salary = fcs
+        experience.company1duration = fcdu
+        
+        experience.company2name = scn
+        experience.company2desig = scd
+        experience.company2salary = scs
+        experience.company2duration = scdu
+
+        experience.company3name = tcn
+        experience.company3desig = tcd
+        experience.company3salary = tcs
+        experience.company3duration = tcdu
+
+
+        try:
+            experience.save()
+            error = "no"
+
+        except:
+            error = "yes"
+
+    return render(request, 'edit_experience.html', locals())
