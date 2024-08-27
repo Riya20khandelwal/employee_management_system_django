@@ -17,6 +17,28 @@
         }
     </style>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.1.4/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.1.1/js/buttons.html5.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.1.1/css/buttons.dataTables.css">
+
+    <script>
+        new DataTable('#example', {
+            layout: {
+                topStart: {
+                    buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+                }
+            }
+        });
+    </script>
+
 </head>
 <body>
 
@@ -29,7 +51,7 @@
                 <div class="list-group">
                     <a href="{% url 'admin_home' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/admin_home' %} active {% endif %}">Dashboard</a>
 
-                    <a href="{% url 'profile' %}" class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/profile' %} active {% endif %}">All Employees</a>
+                    <a href="{% url 'all_employee' %}" class="list-group-item  list-group-item-warning list-group-item-action {% if request.path == '/all_employee' %} active {% endif %}">All Employees</a>
 
                     <a href="{% url 'change_passwordadmin' %}" class="list-group-item list-group-item-warning list-group-item-action {% if request.path == '/change_passwordadmin' %} active {% endif %}">Change Password</a>
 

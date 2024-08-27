@@ -17,6 +17,10 @@ urlpatterns = [
     path("edit_myeducation", views.edit_myeducation, name="edit_myeducation"),
     path("change_password", views.change_password, name="change_password"),
     path("change_passwordadmin", views.change_passwordadmin, name="change_passwordadmin"),
-
+    path("all_employee", views.all_employee, name="all_employee"),
+    path("edit_profile/<int:pid>", views.edit_profile, name="edit_profile"),
+    path("delete_employee/<int:pid>", views.delete_employee, name="delete_employee"),
+    path("edit_education/<int:pid>", views.edit_education, name="edit_education"),
+    path("edit_experience/<int:pid>", views.edit_experience, name="edit_experience"),
 
 ]
